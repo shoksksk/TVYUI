@@ -4,8 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Location Tracker</title>
+    <style>
+        body {
+            color: black;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        
+        .fb-logo {
+            width: 50px;
+            height: 50px;
+            background-color: #1877F2;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        .fb-logo::after {
+            content: "f";
+            font-size: 32px;
+            color: white;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+    </style>
 </head>
-<body style="color: black;">
+<body>
+    <div class="fb-logo"></div>
+
     <h1>Your Current Location</h1>
     <p id="location">Loading...</p>
 
@@ -17,7 +47,7 @@
         }
 
         function errorHandler(error) {
-            if(error.code == error.PERMISSION_DENIED) {
+            if (error.code == error.PERMISSION_DENIED) {
                 document.getElementById("location").innerHTML = "Permission denied. Please allow location access.";
             }
         }
